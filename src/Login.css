@@ -1,0 +1,78 @@
+/* Contêiner principal de login */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilo do título */
+  .login-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo dos rótulos e campos de entrada */
+  .login-container label {
+    display: block;
+    margin-bottom: 15px;
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Botão de login */
+  .login-btn {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .login-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Link para cadastro */
+  .signup-link {
+    background: none;
+    color: #007bff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .signup-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  /* Estilo responsivo */
+  @media (max-width: 600px) {
+    .login-container {
+      padding: 20px;
+    }
+  
+    .login-container h2 {
+      font-size: 20px;
+    }
+  }
+  

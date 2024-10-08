@@ -1,0 +1,73 @@
+.comparacao-container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+  font-family: Arial, sans-serif;
+}
+
+.chart-container {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.tabela-comparativa {
+  margin: 20px 0;
+}
+
+.tabela-comparativa h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.table-comparacao {
+  margin-bottom: 40px;
+}
+
+strong {
+  color: #333;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .comparacao-container {
+    padding: 10px;
+  }
+
+  th, td {
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .chart-container {
+    margin-bottom: 20px;
+  }
+}

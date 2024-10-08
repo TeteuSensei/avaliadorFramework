@@ -1,0 +1,179 @@
+/* Estilos básicos */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Variáveis para o modo claro */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-color: #007bff;
+  --menu-background-color: #f9f9f9;
+  --menu-text-color: #000000;
+}
+
+/* Estilos para o modo escuro */
+.dark-mode {
+  --background-color: #2e2e2e;
+  --text-color: #ffffff;
+  --button-color: #0056b3;
+  --menu-background-color: #444444;
+  --menu-text-color: #ffffff;
+}
+
+/* Estilos gerais para o container principal */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 20px;
+}
+
+/* Botão de alternância de modo */
+.toggle-dark-mode {
+  padding: 10px 20px;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+.toggle-dark-mode:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos do menu */
+.menu {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-toggle {
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  background-color: #0056b3;
+}
+
+.menu-content {
+  display: none;
+  position: absolute;
+  background-color: var(--menu-background-color);
+  color: var(--menu-text-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1;
+  flex-direction: column;
+}
+
+.menu-content.show {
+  display: flex;
+}
+
+.menu-content button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-content button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para as informações do usuário */
+.user-info {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.user-info strong {
+  font-weight: bold;
+}
+
+.user-info div {
+  margin-bottom: 10px;
+}
+
+/* Estilo para os botões */
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 12px 25px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--button-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .toggle-dark-mode, .menu-toggle {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .app-container {
+    padding: 15px;
+  }
+
+  .menu-content {
+    padding: 10px;
+  }
+
+  .user-info {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,102 @@
+/* Estilos do container de cadastro */
+.cadastro-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título de cadastro */
+.cadastro-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilo do formulário */
+.cadastro-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo dos labels */
+.cadastro-container label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #555;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Estilo dos campos de entrada */
+.cadastro-container input[type="text"],
+.cadastro-container input[type="email"],
+.cadastro-container input[type="password"],
+.cadastro-container input[type="checkbox"] {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Estilo para checkbox */
+.cadastro-container input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+/* Estilo da seção de perfil */
+.perfil-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para os botões de seleção de perfil */
+.perfil-section input[type="radio"] {
+  margin-right: 5px;
+}
+
+.perfil-section label {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+/* Botão de cadastrar */
+.cadastro-container button[type="submit"] {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.cadastro-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo do botão de login */
+.cadastro-container p {
+  margin-top: 15px;
+}
+
+.cadastro-container p button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cadastro-container p button:hover {
+  text-decoration: underline;
+}

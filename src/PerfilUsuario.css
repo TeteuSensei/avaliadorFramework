@@ -1,0 +1,72 @@
+.perfil-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px; /* Adicionando espaço abaixo do Menu */
+}
+
+.perfil-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.perfil-imagem img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.perfil-detalhes {
+  flex: 1;
+}
+
+.perfil-detalhes p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.perfil-acoes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.perfil-acoes button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-editar {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+.btn-senha {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+}
+
+.btn-logout {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+.btn-editar:hover, .btn-senha:hover, .btn-logout:hover {
+  opacity: 0.8;
+}
