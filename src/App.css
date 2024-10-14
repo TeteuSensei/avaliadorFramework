@@ -37,20 +37,59 @@ body {
   padding: 20px;
 }
 
-/* Botão de alternância de modo */
-.toggle-dark-mode {
-  padding: 10px 20px;
-  background-color: var(--button-color);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 20px 0;
+/* Modo escuro */
+.dark-mode {
+  --bg-color: #121212; /* Fundo escuro */
+  --text-color: #050000; /* Texto claro */
+  --button-color: #333333; /* Cor dos botões */
+  --input-bg-color: #333333; /* Fundo dos inputs */
+  --input-text-color: #ffffff; /* Texto nos inputs */
 }
 
-.toggle-dark-mode:hover {
-  background-color: #0056b3;
+/* Aplicando as variáveis no modo escuro */
+.dark-mode body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
+
+.dark-mode button {
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: 1px solid #ffffff; /* Bordas claras no modo escuro */
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+  border: 1px solid #ffffff;
+}
+
+/* Estilo para tabelas */
+.dark-mode table {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-color: #ffffff;
+}
+
+.dark-mode th, 
+.dark-mode td {
+  border: 1px solid #ffffff;
+}
+
+.dark-mode tr:nth-child(even) {
+  background-color: #1e1e1e;
+}
+
+.dark-mode a {
+  color: #4ca3ff;
+}
+
+.dark-mode a:hover {
+  color: #66b2ff;
+}
+
 
 /* Estilos do menu */
 .menu {

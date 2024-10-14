@@ -1,0 +1,11 @@
+{
+    "login": {
+      "title": "Login",
+      "identifier": "Usuário ou E-mail",
+      "password": "Senha",
+      "button": "Entrar",
+      "no_account": "Não tem uma conta?",
+      "signup_link": "Cadastre-se aqui"
+    }
+  }
+  

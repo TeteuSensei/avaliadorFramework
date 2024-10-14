@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';  // Esta linha importa o useTranslation
 import './Login.css';  // Arquivo CSS personalizado
 
 const LoginScreen = ({ onLogin, switchToSignup }) => {
   const [identifier, setIdentifier] = useState('');  // Nome de usuário ou e-mail
   const [password, setPassword] = useState('');
   const navigate = useNavigate();  // Hook para redirecionamento
-
+  const { t } = useTranslation();  // Certifique-se de que está sendo usado corretamente
+  
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -33,34 +35,36 @@ const LoginScreen = ({ onLogin, switchToSignup }) => {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2>{t('login.title')}</h2> {/* Usando a tradução para o título */}
       <form onSubmit={handleLogin}>
         <label>
-          Usuário ou E-mail:
+          {t('login.identifier')}:
           <input
             type="text"
             value={identifier}
             onChange={(e) => setIdentifier(e.target.value)}
             required
-            placeholder="Digite seu usuário ou e-mail"
+            placeholder={t('login.identifier_placeholder')}
           />
         </label>
         <label>
-          Senha:
+          {t('login.password')}:
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            placeholder="Digite sua senha"
+            placeholder={t('login.password_placeholder')}
           />
         </label>
-        <button type="submit" className="login-btn">Entrar</button>
+        <button type="submit" className="login-btn">
+          {t('login.button')}
+        </button>
       </form>
       <p>
-        Não tem uma conta?{' '}
+        {t('login.no_account')}{' '}
         <button onClick={switchToSignup} className="signup-link">
-          Cadastre-se aqui
+          {t('login.signup_link')}
         </button>
       </p>
     </div>

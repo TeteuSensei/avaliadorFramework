@@ -1,8 +1,12 @@
 import React from 'react';
 import Menu from './Menu';  // Para o menu de navegação
 import './Explicacao.css';  // Para a estilização da página
+import { useTranslation } from 'react-i18next';  // Importa o hook de tradução
+
 
 const Explicacao = ({ toggleDarkMode, handleLogout }) => {
+  const { t } = useTranslation();  // Hook para tradução
+
   return (
     <div className="explicacao-container">
       <Menu toggleDarkMode={toggleDarkMode} handleLogout={handleLogout} />
@@ -22,7 +26,7 @@ const Explicacao = ({ toggleDarkMode, handleLogout }) => {
         <section className="explicacao-section">
           <h2>2. Avaliação de Critérios e Subcritérios</h2>
           <p>
-            A aplicação já possui implementados os primeiros dois critérios, sendo eles: <strong>Custo</strong> e <strong>Segurança da Informação</strong>. No entanto, o sistema completo incluirá um total de 12 critérios, cada um com seus subcritérios específicos, que serão utilizados para avaliar frameworks de gestão de risco cibernético. Cada framework é avaliado com base nesses critérios, levando em consideração o impacto de cada um em seu desempenho geral. Os critérios selecionados para a avaliação são:
+           O sistema incluir um total de 12 critérios, cada um com seus subcritérios específicos, que serão utilizados para avaliar frameworks de gestão de risco cibernético. Cada framework é avaliado com base nesses critérios, levando em consideração o impacto de cada um em seu desempenho geral. Os critérios selecionados para a avaliação são:
           </p>
 
           <ul>

@@ -75,4 +75,25 @@
       font-size: 20px;
     }
   }
+
+
+  .language-switcher {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .language-switcher button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .language-switcher button:hover {
+    background-color: #0056b3;
+  }
   
