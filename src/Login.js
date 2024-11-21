@@ -20,47 +20,49 @@ const LoginScreen = ({ onLogin, switchToSignup }) => {
 
     if (user) {
       if (user.password === password) {
-        console.log("Usuário logado:", user);
+        console.log("User logged in:", user);
         onLogin(user);
         navigate('/');  // Redireciona para a página inicial após o login
       } else {
-        alert('Senha incorreta');
+        alert('Incorrect password');
       }
     } else {
-      alert('Usuário não encontrado');
+      alert('User not found');
     }
   };
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2>Login</h2> {/* Título da tela de login */}
       <form onSubmit={handleLogin}>
         <label>
-          Usuário ou E-mail:
+          Username or Email:
           <input
             type="text"
             value={identifier}
             onChange={(e) => setIdentifier(e.target.value)}
             required
-            placeholder="Digite seu usuário ou e-mail"
+            placeholder="Enter your username or email"
           />
         </label>
         <label>
-          Senha:
+          Password:
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            placeholder="Digite sua senha"
+            placeholder="Enter your password"
           />
         </label>
-        <button type="submit" className="login-btn">Entrar</button>
+        <button type="submit" className="login-btn">
+          Login
+        </button>
       </form>
       <p>
-        Não tem uma conta?{' '}
+        Don’t have an account?{' '}
         <button onClick={switchToSignup} className="signup-link">
-          Cadastre-se aqui
+          Sign up here
         </button>
       </p>
     </div>

@@ -1,214 +1,217 @@
 import React from 'react';
 import Menu from './Menu';  // Para o menu de navegação
 import './Explicacao.css';  // Para a estilização da página
+import { useTranslation } from 'react-i18next';  // Importa o hook de tradução
 
 const Explicacao = ({ toggleDarkMode, handleLogout }) => {
+  const { t } = useTranslation();  // Hook para tradução
+
   return (
     <div className="explicacao-container">
       <Menu toggleDarkMode={toggleDarkMode} handleLogout={handleLogout} />
       
       <div className="explicacao-content">
-        <h1>Como Funciona o Sistema</h1>
+        <h1>How the System Works</h1>
         
         <section className="explicacao-section">
-          <h2>1. Seleção de Frameworks</h2>
+          <h2>1. Framework Selection</h2>
           <p>
-            Para começar, o usuário deve selecionar os frameworks que deseja avaliar. 
-            No início, você será solicitado a digitar a quantidade de frameworks e seus respectivos nomes.
-            Certifique-se de que os frameworks inseridos estejam corretos para uma avaliação precisa.
+            To start, the user must select the frameworks they want to evaluate. 
+            At the beginning, you will be prompted to enter the number of frameworks and their respective names.
+            Make sure the frameworks entered are correct for accurate evaluation.
           </p>
         </section>
 
         <section className="explicacao-section">
-          <h2>2. Avaliação de Critérios e Subcritérios</h2>
+          <h2>2. Criteria and Subcriteria Evaluation</h2>
           <p>
-            A aplicação já possui implementados os primeiros dois critérios, sendo eles: <strong>Custo</strong> e <strong>Segurança da Informação</strong>. No entanto, o sistema completo incluirá um total de 12 critérios, cada um com seus subcritérios específicos, que serão utilizados para avaliar frameworks de gestão de risco cibernético. Cada framework é avaliado com base nesses critérios, levando em consideração o impacto de cada um em seu desempenho geral. Os critérios selecionados para a avaliação são:
+            The system includes a total of 12 criteria, each with its specific subcriteria, which will be used to evaluate cyber risk management frameworks. Each framework is evaluated based on these criteria, taking into account the impact of each on its overall performance. The selected criteria for evaluation are:
           </p>
 
           <ul>
-            <li><strong>Custo:</strong> Avalia os custos associados à implementação e manutenção do framework. Subcritérios:
+            <li><strong>Cost:</strong> Evaluates the costs associated with the implementation and maintenance of the framework. Subcriteria:
               <ul>
-                <li>Implementação</li>
-                <li>Licença</li>
-                <li>Treinamento</li>
-                <li>Manutenção</li>
-                <li>Consultoria</li>
+                <li>Implementation</li>
+                <li>License</li>
+                <li>Training</li>
+                <li>Maintenance</li>
+                <li>Consultancy</li>
               </ul>
             </li>
-            <li><strong>Segurança da Informação:</strong> Mede a eficácia do framework na proteção de informações críticas. Subcritérios:
+            <li><strong>Information Security:</strong> Measures the effectiveness of the framework in protecting critical information. Subcriteria:
               <ul>
-                <li>Proteção de Dados</li>
-                <li>Detecção de Intrusões</li>
-                <li>Resposta a Incidentes</li>
-                <li>Recuperação</li>
-                <li>Prevenção</li>
+                <li>Data Protection</li>
+                <li>Intrusion Detection</li>
+                <li>Incident Response</li>
+                <li>Recovery</li>
+                <li>Prevention</li>
               </ul>
             </li>
-            <li><strong>Eficiência:</strong> Refere-se à capacidade do framework de otimizar processos e recursos de segurança. Subcritérios:
+            <li><strong>Efficiency:</strong> Refers to the framework's ability to optimize security processes and resources. Subcriteria:
               <ul>
-                <li>Otimização de Recursos</li>
-                <li>Tempo de Resposta</li>
-                <li>Automatização</li>
-                <li>Escalabilidade</li>
-                <li>Integração</li>
+                <li>Resource Optimization</li>
+                <li>Response Time</li>
+                <li>Automation</li>
+                <li>Scalability</li>
+                <li>Integration</li>
               </ul>
             </li>
-            <li><strong>Desempenho:</strong> Avalia o desempenho do framework em termos de resposta a incidentes e mitigação de riscos. Subcritérios:
+            <li><strong>Performance:</strong> Evaluates the performance of the framework in terms of incident response and risk mitigation. Subcriteria:
               <ul>
-                <li>Efetividade das Medidas de Segurança</li>
-                <li>Taxa de Detecção de Ameaças</li>
-                <li>Mitigação de Riscos</li>
-                <li>Impacto na Operação</li>
-                <li>Tempo de Recuperação</li>
+                <li>Effectiveness of Security Measures</li>
+                <li>Threat Detection Rate</li>
+                <li>Risk Mitigation</li>
+                <li>Operational Impact</li>
+                <li>Recovery Time</li>
               </ul>
             </li>
-            <li><strong>Complexidade:</strong> Analisa a facilidade de implementação e uso do framework. Subcritérios:
+            <li><strong>Complexity:</strong> Analyzes the ease of implementation and use of the framework. Subcriteria:
               <ul>
-                <li>Facilidade de Implementação</li>
-                <li>Curva de Aprendizado</li>
-                <li>Requisitos Técnicos</li>
-                <li>Compatibilidade com Sistemas Existentes</li>
-                <li>Complexidade de Manutenção</li>
+                <li>Ease of Implementation</li>
+                <li>Learning Curve</li>
+                <li>Technical Requirements</li>
+                <li>Compatibility with Existing Systems</li>
+                <li>Maintenance Complexity</li>
               </ul>
             </li>
-            <li><strong>Flexibilidade/Adaptabilidade:</strong> Avalia a capacidade do framework de se adaptar a diferentes tipos de organizações e setores. Subcritérios:
+            <li><strong>Flexibility/Adaptability:</strong> Evaluates the framework's ability to adapt to different types of organizations and sectors. Subcriteria:
               <ul>
-                <li>Adaptação a Diferentes Setores</li>
-                <li>Customização</li>
-                <li>Escalabilidade</li>
-                <li>Integração com Outras Ferramentas</li>
-                <li>Ajustes de Configuração</li>
+                <li>Adaptation to Different Sectors</li>
+                <li>Customization</li>
+                <li>Scalability</li>
+                <li>Integration with Other Tools</li>
+                <li>Configuration Adjustments</li>
               </ul>
             </li>
-            <li><strong>Conformidade:</strong> Verifica o alinhamento do framework com normas e regulamentações de segurança. Subcritérios:
+            <li><strong>Compliance:</strong> Checks the framework's alignment with security standards and regulations. Subcriteria:
               <ul>
-                <li>Regulamentação</li>
-                <li>Políticas Internas</li>
-                <li>Auditoria</li>
-                <li>Relatórios</li>
-                <li>Certificação</li>
+                <li>Regulation</li>
+                <li>Internal Policies</li>
+                <li>Audit</li>
+                <li>Reports</li>
+                <li>Certification</li>
               </ul>
             </li>
-            <li><strong>Suporte e Documentação:</strong> Examina a qualidade e disponibilidade do suporte técnico e da documentação do framework. Subcritérios:
+            <li><strong>Support and Documentation:</strong> Examines the quality and availability of technical support and framework documentation. Subcriteria:
               <ul>
-                <li>Qualidade da Documentação</li>
-                <li>Disponibilidade de Suporte Técnico</li>
-                <li>Comunidade de Usuários</li>
-                <li>Recursos de Aprendizado</li>
-                <li>Atualizações de Documentação</li>
+                <li>Documentation Quality</li>
+                <li>Availability of Technical Support</li>
+                <li>User Community</li>
+                <li>Learning Resources</li>
+                <li>Documentation Updates</li>
               </ul>
             </li>
-            <li><strong>Escalabilidade:</strong> Avalia a capacidade do framework de crescer junto com a organização. Subcritérios:
+            <li><strong>Scalability:</strong> Evaluates the framework's ability to grow with the organization. Subcriteria:
               <ul>
-                <li>Capacidade de Crescimento</li>
-                <li>Performance em Larga Escala</li>
-                <li>Flexibilidade de Expansão</li>
-                <li>Gerenciamento de Crescimento</li>
-                <li>Suporte a Multinacionais</li>
+                <li>Growth Capacity</li>
+                <li>Performance at Scale</li>
+                <li>Expansion Flexibility</li>
+                <li>Growth Management</li>
+                <li>Multinational Support</li>
               </ul>
             </li>
-            <li><strong>Comunidade e Adoção:</strong> Considera o tamanho e a atividade da comunidade de usuários e desenvolvedores. Subcritérios:
+            <li><strong>Community and Adoption:</strong> Considers the size and activity of the user and developer community. Subcriteria:
               <ul>
-                <li>Popularidade</li>
-                <li>Feedback da Comunidade</li>
-                <li>Exemplos de Uso Real</li>
-                <li>Colaborações e Parcerias</li>
-                <li>Desenvolvimento Contínuo</li>
+                <li>Popularity</li>
+                <li>Community Feedback</li>
+                <li>Real Use Cases</li>
+                <li>Collaborations and Partnerships</li>
+                <li>Continuous Development</li>
               </ul>
             </li>
-            <li><strong>Integração com Outras Ferramentas:</strong> Avalia a facilidade de integração do framework com outras ferramentas e sistemas. Subcritérios:
+            <li><strong>Integration with Other Tools:</strong> Evaluates the ease of integrating the framework with other tools and systems. Subcriteria:
               <ul>
-                <li>Compatibilidade</li>
-                <li>APIs e Conectores</li>
-                <li>Interoperabilidade</li>
-                <li>Facilidade de Integração</li>
-                <li>Suporte a Padrões Abertos</li>
+                <li>Compatibility</li>
+                <li>APIs and Connectors</li>
+                <li>Interoperability</li>
+                <li>Integration Ease</li>
+                <li>Support for Open Standards</li>
               </ul>
             </li>
-            <li><strong>Inovação e Atualização:</strong> Analisa a frequência de atualizações e a incorporação de novas tecnologias e práticas. Subcritérios:
+            <li><strong>Innovation and Updates:</strong> Analyzes the frequency of updates and the incorporation of new technologies and practices. Subcriteria:
               <ul>
-                <li>Frequência de Atualizações</li>
-                <li>Incorporação de Novas Tecnologias</li>
-                <li>Pesquisa e Desenvolvimento</li>
-                <li>Feedback do Mercado</li>
-                <li>Melhorias Contínuas</li>
+                <li>Update Frequency</li>
+                <li>Incorporation of New Technologies</li>
+                <li>Research and Development</li>
+                <li>Market Feedback</li>
+                <li>Continuous Improvements</li>
               </ul>
             </li>
           </ul>
         </section>
 
         <section className="explicacao-section">
-          <h2>3. Como Funciona o Cálculo de Avaliação</h2>
+          <h2>3. How the Evaluation Calculation Works</h2>
           <p>
-            O cálculo da nota final de um framework é feito com base nas avaliações de critérios e subcritérios, levando em consideração os pesos atribuídos a cada um. A metodologia de cálculo é projetada para refletir a importância relativa de cada critério e subcritério no contexto de gestão de risco cibernético.
+            The final score of a framework is calculated based on the evaluations of criteria and subcriteria, taking into account the weights assigned to each. The calculation methodology is designed to reflect the relative importance of each criterion and subcriterion in the context of cyber risk management.
           </p>
 
-          <h3>Cálculo da Nota de Subcritérios</h3>
+          <h3>Subcriteria Score Calculation</h3>
           <p>
-            Cada subcritério dentro de um critério recebe uma nota e um peso que indica sua prioridade. A escala de pesos funciona da seguinte maneira:
+            Each subcriterion within a criterion receives a score and a weight indicating its priority. The weight scale works as follows:
           </p>
           <ul>
-            <li><strong>Alta Prioridade:</strong> Peso = 3</li>
-            <li><strong>Prioridade Média:</strong> Peso = 2</li>
-            <li><strong>Baixa Prioridade:</strong> Peso = 1</li>
+            <li><strong>High Priority:</strong> Weight = 3</li>
+            <li><strong>Medium Priority:</strong> Weight = 2</li>
+            <li><strong>Low Priority:</strong> Weight = 1</li>
           </ul>
           <p>
-            A pontuação ponderada de cada subcritério é calculada multiplicando a nota atribuída ao subcritério pelo seu peso. Por exemplo, se um subcritério "Proteção de Dados" tem uma nota de 5 e um peso de "Alta Prioridade", a pontuação ponderada será:
+            The weighted score of each subcriterion is calculated by multiplying the assigned score by its weight. For example, if a subcriterion "Data Protection" has a score of 5 and a weight of "High Priority", the weighted score will be:
           </p>
-          <blockquote>Pontuação Ponderada = Nota (5) x Peso (3) = 15</blockquote>
+          <blockquote>Weighted Score = Score (5) x Weight (3) = 15</blockquote>
 
-          <h3>Cálculo da Nota de Critérios</h3>
+          <h3>Criteria Score Calculation</h3>
           <p>
-            A nota de cada critério é obtida pela média ponderada das notas de seus subcritérios. Se um critério tiver vários subcritérios, suas notas são somadas com base no peso, e a média é calculada. Por exemplo, se o critério "Custo" incluir três subcritérios com as seguintes pontuações ponderadas:
+            The score of each criterion is obtained by the weighted average of its subcriteria scores. If a criterion has several subcriteria, their scores are summed based on weight, and the average is calculated. For example, if the criterion "Cost" includes three subcriteria with the following weighted scores:
           </p>
           <ul>
-            <li>Licença: Nota = 4, Peso = 2 (Prioridade Média)</li>
-            <li>Manutenção: Nota = 3, Peso = 3 (Alta Prioridade)</li>
-            <li>Consultoria: Nota = 2, Peso = 1 (Baixa Prioridade)</li>
+            <li>License: Score = 4, Weight = 2 (Medium Priority)</li>
+            <li>Maintenance: Score = 3, Weight = 3 (High Priority)</li>
+            <li>Consultancy: Score = 2, Weight = 1 (Low Priority)</li>
           </ul>
           <p>
-            O cálculo da nota final do critério "Custo" seria:
+            The final score for the "Cost" criterion would be:
           </p>
-          <blockquote>Nota Final de Critério = (4 x 2 + 3 x 3 + 2 x 1) ÷ (2 + 3 + 1) = 3,33</blockquote>
+          <blockquote>Final Criterion Score = (4 x 2 + 3 x 3 + 2 x 1) ÷ (2 + 3 + 1) = 3.33</blockquote>
 
-          <h3>Cálculo da Nota Final do Framework</h3>
+          <h3>Final Framework Score Calculation</h3>
           <p>
-            A nota final de um framework é obtida pela média ponderada das notas dos critérios. Da mesma forma que com os subcritérios, cada critério tem um peso que reflete sua importância geral na avaliação do framework. Esses pesos são ajustáveis, mas por padrão, todos os critérios têm o mesmo peso.
+            The final score of a framework is obtained by the weighted average of the criteria scores. Just like the subcriteria, each criterion has a weight that reflects its overall importance in the framework evaluation. These weights are adjustable, but by default, all criteria have the same weight.
           </p>
-          <blockquote>Nota Final = (Nota Critério 1 x Peso 1 + Nota Critério 2 x Peso 2 + ...) ÷ (Soma dos Pesos)</blockquote>
+          <blockquote>Final Score = (Criterion 1 Score x Weight 1 + Criterion 2 Score x Weight 2 + ...) ÷ (Sum of Weights)</blockquote>
 
-          <h3>Interpretação dos Resultados</h3>
+          <h3>Result Interpretation</h3>
           <p>
-            As notas finais são usadas para comparar os frameworks em termos de adequação para uma determinada organização ou cenário de gestão de risco cibernético. Quanto maior a nota, melhor o framework atende aos critérios e subcritérios avaliados. Essa abordagem ponderada garante que os frameworks sejam avaliados de forma justa, levando em consideração as prioridades definidas pelo avaliador.
+            The final scores are used to compare frameworks in terms of suitability for a particular organization or cyber risk management scenario. The higher the score, the better the framework meets the evaluated criteria and subcriteria. This weighted approach ensures that frameworks are fairly evaluated, considering the priorities set by the evaluator.
           </p>
         </section>
 
         <section className="explicacao-section">
-          <h2>4. Comparação de Resultados</h2>
+          <h2>4. Comparing Results</h2>
           <p>
-            Após a avaliação, você pode comparar os resultados entre diferentes frameworks ou entre avaliações de diferentes usuários. A página de comparação permite uma visualização clara dos dados por meio de gráficos e tabelas comparativas.
+            After the evaluation, you can compare the results between different frameworks or between evaluations from different users. The comparison page allows clear visualization of the data through comparative charts and tables.
           </p>
         </section>
 
         <section className="explicacao-section">
-          <h2>5. Geração de Relatórios</h2>
+          <h2>5. Report Generation</h2>
           <p>
-            Os resultados de suas avaliações podem ser exportados como relatórios detalhados, facilitando a análise posterior. Esses relatórios incluem gráficos de desempenho, notas atribuídas e a prioridade de cada critério.
+            The results of your evaluations can be exported as detailed reports, making it easier for further analysis. These reports include performance charts, assigned scores, and the priority of each criterion.
           </p>
         </section>
 
         <section className="explicacao-section">
-          <h2>Perguntas Frequentes (FAQ)</h2>
-          <p>Se você tiver alguma dúvida, consulte a seção de perguntas frequentes abaixo:</p>
+          <h2>Frequently Asked Questions (FAQ)</h2>
+          <p>If you have any questions, refer to the FAQ section below:</p>
           <ul>
-            <li><strong>Como redefinir minha senha?</strong> Vá até o perfil e clique em "Alterar Senha".</li>
-            <li><strong>Como posso adicionar novos frameworks?</strong> Acesse a seção de seleção de frameworks e insira o nome do novo framework.</li>
-            <li><strong>Onde posso ver os relatórios gerados?</strong> Você pode acessar a seção de "Relatórios" no menu.</li>
+            <li><strong>How do I reset my password?</strong> Go to the profile and click on "Change Password".</li>
+            <li><strong>How can I add new frameworks?</strong> Go to the framework selection section and enter the name of the new framework.</li>
+            <li><strong>Where can I see the generated reports?</strong> You can access the "Reports" section in the menu.</li>
           </ul>
         </section>
 
         <footer className="explicacao-footer">
-          <p>Para mais informações, entre em contato com o suporte técnico.</p>
+          <p>For more information, contact technical support.</p>
         </footer>
       </div>
     </div>

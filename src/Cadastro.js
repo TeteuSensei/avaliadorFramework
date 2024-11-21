@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Cadastro.css';  // Certifique-se de que o CSS tenha os estilos corretos
+import './Cadastro.css'; // Certifique-se de que o CSS tenha os estilos corretos
 
 const CadastroScreen = ({ onSignup, switchToLogin }) => {
   const [name, setName] = useState('');
@@ -9,7 +9,6 @@ const CadastroScreen = ({ onSignup, switchToLogin }) => {
   const [isPartOfCompany, setIsPartOfCompany] = useState(false);
   const [companyName, setCompanyName] = useState('');
   const [sector, setSector] = useState('');
-  const [role, setRole] = useState('usuario'); // Perfil padrão: Usuário
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -22,28 +21,27 @@ const CadastroScreen = ({ onSignup, switchToLogin }) => {
         isPartOfCompany,
         companyName: isPartOfCompany ? companyName : '',
         sector: isPartOfCompany ? sector : '',
-        role, // Perfil (gestor ou usuário)
+        role: 'usuario', // Papel padrão
       };
-  
+
       // Salvar o novo usuário no localStorage
       const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
       existingUsers.push(newUser);
       localStorage.setItem('users', JSON.stringify(existingUsers));
-  
-      // Verificando se o papel foi salvo corretamente
-      console.log("Usuário cadastrado:", newUser);
-  
+
+      console.log('Usuário cadastrado:', newUser);
+
       // Chamando a função onSignup para definir o estado de login
       onSignup(newUser);
     }
   };
-  
+
   return (
     <div className="cadastro-container">
-      <h2>Cadastro</h2>
+      <h2>Sign Up</h2>
       <form onSubmit={handleSignup}>
         <label>
-          Nome:
+          Name:
           <input
             type="text"
             value={name}
@@ -52,7 +50,7 @@ const CadastroScreen = ({ onSignup, switchToLogin }) => {
           />
         </label>
         <label>
-          Nome de Usuário:
+          Username:
           <input
             type="text"
             value={username}
@@ -61,7 +59,7 @@ const CadastroScreen = ({ onSignup, switchToLogin }) => {
           />
         </label>
         <label>
-          E-mail:
+          Email:
           <input
             type="email"
             value={email}
@@ -70,7 +68,7 @@ const CadastroScreen = ({ onSignup, switchToLogin }) => {
           />
         </label>
         <label>
-          Senha:
+          Password:
           <input
             type="password"
             value={password}
@@ -84,12 +82,12 @@ const CadastroScreen = ({ onSignup, switchToLogin }) => {
             checked={isPartOfCompany}
             onChange={(e) => setIsPartOfCompany(e.target.checked)}
           />
-          Faz parte de uma empresa/setor?
+          Part of a company/sector?
         </label>
         {isPartOfCompany && (
           <>
             <label>
-              Nome da Empresa:
+              Company Name:
               <input
                 type="text"
                 value={companyName}
@@ -98,7 +96,7 @@ const CadastroScreen = ({ onSignup, switchToLogin }) => {
               />
             </label>
             <label>
-              Setor:
+              Sector:
               <input
                 type="text"
                 value={sector}
@@ -108,32 +106,11 @@ const CadastroScreen = ({ onSignup, switchToLogin }) => {
             </label>
           </>
         )}
-        <div className="perfil-section">
-          <p>Selecione o Perfil:</p>
-          <label>
-            <input
-              type="radio"
-              value="usuario"
-              checked={role === 'usuario'}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            Usuário
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="gestor"
-              checked={role === 'gestor'}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            Gestor
-          </label>
-        </div>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Sign Up</button>
       </form>
       <p>
-        Já tem uma conta?{' '}
-        <button onClick={switchToLogin}>Fazer login</button>
+        Already have an account?{' '}
+        <button onClick={switchToLogin}>Log in</button>
       </p>
     </div>
   );

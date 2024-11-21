@@ -6,53 +6,93 @@ body {
   box-sizing: border-box;
   background-color: var(--background-color);
   color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Variáveis para o modo claro */
 :root {
-  --background-color: #ffffff;
-  --text-color: #000000;
+  --background-color: #fbfbfb;
+  --text-color: #212529;
   --button-color: #007bff;
-  --menu-background-color: #f9f9f9;
-  --menu-text-color: #000000;
+  --button-hover-color: #0056b3;
+  --menu-background-color: #f8f9fa;
+  --menu-text-color: #212529;
+  --table-header-color: #0056b3;
+  --table-header-text-color: #ffffff;
+  --table-row-hover: #e9ecef;
+  --input-border-color: #ced4da;
 }
 
-/* Estilos para o modo escuro */
+/* Variáveis para o modo escuro */
 .dark-mode {
   --background-color: #2e2e2e;
-  --text-color: #ffffff;
-  --button-color: #0056b3;
-  --menu-background-color: #444444;
-  --menu-text-color: #ffffff;
+  --text-color: #212529;
+  --button-color: #495057;
+  --button-hover-color: #343a40;
+  --menu-background-color: #3a3a3a;
+  --menu-text-color: #f8f9fa;
+  --table-header-color: #6c757d;
+  --table-header-text-color: #ffffff;
+  --table-row-hover: #505050;
+  --input-border-color: #6c757d;
 }
 
-/* Estilos gerais para o container principal */
+/* Container principal */
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
   padding: 20px;
 }
 
-/* Botão de alternância de modo */
-.toggle-dark-mode {
-  padding: 10px 20px;
+/* Estilo de tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #ffffff;
+  color: var(--text-color);
+  border: 1px solid var(--input-border-color);
+}
+
+table th {
+  background-color: var(--table-header-color);
+  color: var(--table-header-text-color);
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+}
+
+table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--input-border-color);
+}
+
+table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+table tr:hover {
+  background-color: var(--table-row-hover);
+}
+
+/* Estilo dos botões */
+button {
   background-color: var(--button-color);
   color: white;
   border: none;
+  padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  margin: 20px 0;
+  transition: background-color 0.3s ease;
 }
 
-.toggle-dark-mode:hover {
-  background-color: #0056b3;
+button:hover {
+  background-color: var(--button-hover-color);
 }
 
-/* Estilos do menu */
+/* Menu */
 .menu {
   position: relative;
   display: inline-block;
@@ -61,14 +101,13 @@ body {
 .menu-toggle {
   background-color: var(--button-color);
   color: white;
-  border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .menu-toggle:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover-color);
 }
 
 .menu-content {
@@ -76,104 +115,69 @@ body {
   position: absolute;
   background-color: var(--menu-background-color);
   color: var(--menu-text-color);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
   border-radius: 5px;
-  z-index: 1;
-  flex-direction: column;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .menu-content.show {
-  display: flex;
+  display: block;
 }
 
 .menu-content button {
   background-color: transparent;
   border: none;
   color: inherit;
-  padding: 10px;
+  padding: 8px;
   text-align: left;
+  width: 100%;
   cursor: pointer;
 }
 
 .menu-content button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--table-row-hover);
 }
 
-/* Estilo para as informações do usuário */
-.user-info {
-  background-color: #f0f0f0;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  max-width: 600px;
-  text-align: left;
-}
-
-.user-info strong {
-  font-weight: bold;
-}
-
-.user-info div {
+/* Inputs */
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 16px;
   margin-bottom: 10px;
+  background-color: #ffffff;
+  color: var(--text-color);
 }
 
-/* Estilo para os botões */
-.action-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
+input:focus, select:focus, textarea:focus {
+  border-color: var(--button-color);
+  outline: none;
 }
 
-.btn-primary, .btn-secondary {
-  padding: 12px 25px;
-  font-size: 1.1em;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary {
-  background-color: var(--button-color);
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
-}
-
-.btn-secondary:hover {
-  background-color: #5a6268;
+/* Títulos */
+h1, h2, h3 {
+  color: var(--text-color);
+  font-weight: bold;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .toggle-dark-mode, .menu-toggle {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .app-container {
-    padding: 15px;
-  }
-
   .menu-content {
-    padding: 10px;
-  }
-
-  .user-info {
     width: 100%;
-    padding: 15px;
+    position: relative;
   }
 
-  .action-buttons {
-    flex-direction: column;
-    gap: 10px;
+  table {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  input, select, textarea {
+    font-size: 14px;
   }
 }

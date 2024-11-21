@@ -24,7 +24,7 @@ const PerfilUsuario = ({ user, toggleDarkMode, handleLogout }) => {
         <div className="perfil-detalhes">
           <p><strong>Nome:</strong> {user.name}</p>
           <p><strong>E-mail:</strong> {user.email}</p>
-          <p><strong>Função (Role):</strong> {user.role}</p>
+          <p><strong>Função (Role):</strong> {user.role === 'admin' ? 'Administrador' : 'Usuário'}</p>
           {user.companyName && <p><strong>Empresa:</strong> {user.companyName}</p>}
           {user.sector && <p><strong>Setor:</strong> {user.sector}</p>}
           <p><strong>Data de Cadastro:</strong> {new Date().toLocaleDateString()}</p>
@@ -34,6 +34,12 @@ const PerfilUsuario = ({ user, toggleDarkMode, handleLogout }) => {
       <div className="perfil-acoes">
         <button className="btn-editar">Editar Perfil</button>
         <button className="btn-senha">Alterar Senha</button>
+        
+        {/* Exibe o botão "Painel Administrativo" apenas para o Administrador */}
+        {user.role === 'admin' && (
+          <button className="btn-admin">Painel Administrativo</button>
+        )}
+        
         <button className="btn-logout" onClick={handleLogout}>Sair</button>
       </div>
     </div>

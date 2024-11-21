@@ -6,7 +6,7 @@ import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import Menu from './Menu';
-import './Relatorio.css'; 
+import './Relatorio.css';
 
 // Registrar os componentes necessários para o gráfico de barras
 ChartJS.register(CategoryScale, LinearScale, BarElement);
