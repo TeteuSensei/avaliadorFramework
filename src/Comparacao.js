@@ -26,11 +26,11 @@ const Comparacao = ({ toggleDarkMode, handleLogout }) => {
   }, [selectedReports]);
 
   if (!selectedReports || selectedReports.length < 2) {
-    return <div>Nenhum dado suficiente para comparação.</div>;
+    return <div>Insufficient data for comparison.</div>;
   }
 
   if (frameworksComuns.length === 0) {
-    return <div>Nenhum framework comum encontrado para comparação.</div>;
+    return <div>No common frameworks found for comparison.</div>;
   }
 
   // Função para calcular a nota final de um framework
@@ -100,12 +100,12 @@ const Comparacao = ({ toggleDarkMode, handleLogout }) => {
   const renderTabelaMediaFrameworks = () => {
     return (
       <div className="tabela-media-frameworks">
-        <h3>Média das Notas dos Frameworks</h3>
+        <h3>Frameworks Final Score Averages</h3>
         <table>
           <thead>
             <tr>
               <th>Framework</th>
-              <th>Média das Notas</th>
+              <th>Final Score Average</th>
             </tr>
           </thead>
           <tbody>
@@ -177,8 +177,8 @@ const Comparacao = ({ toggleDarkMode, handleLogout }) => {
         {criteria.subcriteria.map((sub, subIndex) => (
           <td key={subIndex}>
             <strong>{sub.title}</strong><br />
-            Nota: {sub.score}<br />
-            Peso: {sub.weight}
+            Score: {sub.score}<br />
+            Weight: {sub.weight}
           </td>
         ))}
       </tr>
@@ -190,7 +190,7 @@ const Comparacao = ({ toggleDarkMode, handleLogout }) => {
       {/* Menu de navegação */}
       <Menu toggleDarkMode={toggleDarkMode} handleLogout={handleLogout} />
       
-      <h2>Comparação de Relatórios</h2>
+      <h2>Report Comparison</h2>
 
       {/* Gráfico de Barras */}
       <div className="chart-container">
@@ -199,12 +199,12 @@ const Comparacao = ({ toggleDarkMode, handleLogout }) => {
 
     {/* Tabela Comparativa de Critérios */}
     <div className="tabela-comparativa">
-        <h3>Tabela Comparativa de Critérios</h3>
+        <h3>Criteria Comparison Table</h3>
         <table className="table table-bordered">
           <thead>
             <tr>
               <th>Framework</th>
-              <th>Critério</th>
+              <th>Criterion</th>
               {selectedReports.map((report) => (
                 <th key={report.username}>{report.username}</th> 
               ))}
@@ -234,12 +234,12 @@ const Comparacao = ({ toggleDarkMode, handleLogout }) => {
                         
                         return (
                           <td key={reportIndex}>
-                            Nota: {userCriteria ? calculateCriteriaScore(userCriteria) : 'Sem Dados'}<br />
-                            Peso: {userCriteria ? userCriteria.weight : 'Sem Dados'}
+                            Score: {userCriteria ? calculateCriteriaScore(userCriteria) : 'Sem Dados'}<br />
+                            Weight: {userCriteria ? userCriteria.weight : 'Sem Dados'}
                           </td>
                         );
                       } else {
-                        return <td key={reportIndex}>Sem Dados</td>;
+                        return <td key={reportIndex}>No Data</td>;
                       }
                     })}
                   </tr>
@@ -251,15 +251,15 @@ const Comparacao = ({ toggleDarkMode, handleLogout }) => {
       </div>
 
       <div className="tabela-comparativa">
-    <h3>Tabela Comparativa de Subcritérios</h3>
+    <h3>Subcriteria Comparison Table</h3>
     <table>
       <thead>
         <tr>
           <th>Framework</th>
-          <th>Critério</th>
-          <th>Subcritério</th>
+          <th>Criterion</th>
+          <th>Subcriterion</th>
           {selectedReports.map((report) => (
-            <th key={report.username}>{report.username}</th> // Colunas para cada avaliador
+            <th key={report.username}>{report.username}</th> 
           ))}
         </tr>
       </thead>
@@ -299,12 +299,12 @@ const Comparacao = ({ toggleDarkMode, handleLogout }) => {
 
                         return (
                           <td key={reportIndex}>
-                            Nota: {userSubcriteria ? userSubcriteria.score : 'Sem Dados'}<br />
-                            Peso: {userSubcriteria ? userSubcriteria.weight : 'Sem Dados'}
+                            Score: {userSubcriteria ? userSubcriteria.score : 'Sem Dados'}<br />
+                            Weight: {userSubcriteria ? userSubcriteria.weight : 'Sem Dados'}
                           </td>
                         );
                       } else {
-                        return <td key={reportIndex}>Sem Dados</td>;
+                        return <td key={reportIndex}>No Data</td>;
                       }
                     })}
                   </tr>
@@ -317,17 +317,16 @@ const Comparacao = ({ toggleDarkMode, handleLogout }) => {
     </table>
   </div>
 
-
       <div className="tabela-media-frameworks">
-        <h3>Média das Notas dos Frameworks</h3>
+        <h3>Average Framework Grades</h3>
         <table>
           <thead>
             <tr>
               <th>Framework</th>
               {selectedReports.map((report) => (
-                <th key={report.username}>{report.username}</th> // Coluna para cada avaliador
+                <th key={report.username}>{report.username}</th> 
               ))}
-              <th>Média das Notas</th> {/* Coluna para a média das notas */}
+              <th>Grade Average</th> {/* Coluna para a média das notas */}
             </tr>
           </thead>
           <tbody>

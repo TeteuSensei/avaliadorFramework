@@ -1,135 +1,159 @@
-/* Estilos da página inicial */
+/* Página inicial */
 .pagina-inicial-container {
-  max-width: 800px;  /* Largura máxima da página */
-  margin: 0 auto;  /* Centraliza a página no centro horizontal */
-  padding: 30px;  /* Espaçamento interno */
-  background-color: var(--background-color);  /* Cor de fundo da página, depende do modo (claro/escuro) */
-  color: var(--text-color);  /* Cor do texto, depende do modo (claro/escuro) */
-  border-radius: 15px;  /* Borda arredondada */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra leve ao redor da página */
-  text-align: center;  /* Texto centralizado */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Estilo para o cabeçalho e o modo escuro */
+/* Cabeçalho e modo escuro */
 .header {
-  display: flex;  /* Exibe o conteúdo em linha */
-  justify-content: space-between;  /* Espaça o título e o menu */
-  align-items: center;  /* Alinha verticalmente os itens */
-  margin-bottom: 30px;  /* Espaçamento abaixo do cabeçalho */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 h1 {
-  font-size: 2.2em;  /* Tamanho da fonte do título */
-  margin: 0;  /* Remove margem padrão */
+  font-size: 2.2em;
+  margin: 0;
 }
 
 /* Estilos do menu suspenso */
-.menu {
-  position: relative;  /* O menu será posicionado relativamente ao botão */
+.menu-container {
+  position: relative;
 }
 
 .menu-toggle {
-  background-color: #007bff;  /* Cor de fundo do botão de menu */
-  color: white;  /* Cor do texto do botão */
-  border: none;  /* Remove borda padrão */
-  padding: 10px;  /* Espaçamento interno do botão */
-  border-radius: 8px;  /* Bordas arredondadas */
-  cursor: pointer;  /* Mostra cursor de mão no hover */
+  font-size: 18px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .menu-toggle:hover {
-  background-color: #0056b3;  /* Cor do botão ao passar o mouse */
+  background-color: #0056b3;
 }
 
-/* Estilos do conteúdo do menu quando ele é aberto */
+/* Conteúdo do menu */
 .menu-content {
-  position: absolute;  /* Posiciona o conteúdo do menu */
-  right: 0;  /* Alinha o menu à direita */
-  top: 40px;  /* Posiciona o menu abaixo do botão */
-  background-color: var(--menu-background-color);  /* Cor de fundo do menu */
-  color: var(--menu-text-color);  /* Cor do texto do menu */
-  padding: 15px;  /* Espaçamento interno do menu */
-  border-radius: 8px;  /* Bordas arredondadas no menu */
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);  /* Sombra ao redor do menu */
-  display: flex;  /* Exibe os botões do menu em uma coluna */
-  flex-direction: column;  /* Organiza os botões verticalmente */
-  gap: 12px;  /* Espaçamento entre os botões */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.3s ease;
 }
 
-/* Estilos dos botões dentro do menu */
+/* Botões dentro do menu */
 .menu-content button {
-  background-color: transparent;  /* Remove cor de fundo dos botões do menu */
-  border: none;  /* Remove borda padrão dos botões */
-  color: inherit;  /* Herda a cor do texto atual */
-  cursor: pointer;  /* Mostra cursor de mão */
-  font-size: 1em;  /* Tamanho da fonte dos botões */
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 8px;
+  text-align: left;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .menu-content button:hover {
-  background-color: rgba(0, 0, 0, 0.1);  /* Cor de fundo ao passar o mouse */
-  border-radius: 5px;  /* Bordas arredondadas no hover */
-  padding: 5px;  /* Espaçamento extra no hover */
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px;
 }
 
-/* Estilo para as informações do usuário */
+/* Animação de fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo para informações do usuário */
 .user-info {
-  background-color: #f0f0f0;  /* Cor de fundo para a área de informações do usuário */
-  padding: 20px;  /* Espaçamento interno */
-  border-radius: 10px;  /* Bordas arredondadas */
-  margin-bottom: 30px;  /* Espaçamento abaixo das informações */
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 .info-item {
-  margin-bottom: 10px;  /* Espaçamento entre as linhas de informações */
-  font-size: 1.1em;  /* Tamanho da fonte das informações */
+  margin-bottom: 10px;
+  font-size: 1.1em;
 }
 
 strong {
-  font-weight: bold;  /* Negrito para os rótulos das informações */
+  font-weight: bold;
 }
 
 /* Estilo dos botões */
 .action-buttons {
-  display: flex;  /* Exibe os botões em linha */
-  gap: 20px;  /* Espaçamento entre os botões */
-  justify-content: center;  /* Centraliza os botões */
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
-.btn-primary, .btn-secondary {
-  padding: 12px 25px;  /* Espaçamento interno dos botões */
-  font-size: 1.1em;  /* Tamanho da fonte */
-  border: none;  /* Remove borda padrão */
-  border-radius: 8px;  /* Bordas arredondadas nos botões */
-  cursor: pointer;  /* Mostra cursor de mão no hover */
-  transition: background-color 0.3s ease;  /* Transição suave na cor de fundo */
+.btn-primary,
+.btn-secondary {
+  padding: 12px 25px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn-primary {
-  background-color: #007bff;  /* Cor de fundo do botão primário */
-  color: white;  /* Cor do texto do botão primário */
+  background-color: #007bff;
+  color: white;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;  /* Cor de fundo ao passar o mouse */
+  background-color: #0056b3;
 }
 
 .btn-secondary {
-  background-color: #6c757d;  /* Cor de fundo do botão secundário */
-  color: white;  /* Cor do texto do botão secundário */
+  background-color: #6c757d;
+  color: white;
 }
 
 .btn-secondary:hover {
-  background-color: #5a6268;  /* Cor de fundo ao passar o mouse no botão secundário */
+  background-color: #5a6268;
 }
 
-/* Melhorias no botão do menu */
-.header .menu-toggle {
-  padding: 10px 15px;  /* Aumenta o espaçamento interno do botão de menu */
-  font-size: 1.1em;  /* Aumenta o tamanho da fonte */
-  border-radius: 5px;  /* Bordas arredondadas */
-  transition: background-color 0.3s ease;  /* Transição suave na cor de fundo */
+.frameworks-averages {
+  margin-top: 30px;
+  text-align: center;
 }
 
-.header .menu-toggle:hover {
-  background-color: #0056b3;  /* Cor de fundo ao passar o mouse */
+.frameworks-averages table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
 }
+
+.frameworks-averages th,
+.frameworks-averages td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.frameworks-averages th {
+  background-color: #007bff;
+  color: white;
+}
+

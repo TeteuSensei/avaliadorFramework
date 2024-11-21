@@ -26,7 +26,7 @@ const Equipe = ({ user, toggleDarkMode, handleLogout }) => {
     if (userReport) {
       navigate('/relatorio', { state: { frameworksData: userReport.frameworks } });
     } else {
-      alert("Nenhum relatório encontrado para este usuário.");
+      alert("No report found for this user.");
     }
   };
 
@@ -34,7 +34,7 @@ const Equipe = ({ user, toggleDarkMode, handleLogout }) => {
     let storedAvaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
     const updatedAvaliacoes = storedAvaliacoes.filter((av) => av.username !== username);
     localStorage.setItem('avaliacoes', JSON.stringify(updatedAvaliacoes));
-    alert("Relatório apagado com sucesso!");
+    alert("Report successfully deleted!");
   };
 
   const handleSelectReport = (username) => {
@@ -53,7 +53,7 @@ const Equipe = ({ user, toggleDarkMode, handleLogout }) => {
 
   const handleCompareReports = () => {
     if (selectedReports.length < 2) {
-      alert("Selecione pelo menos dois relatórios para comparar.");
+      alert("Please select at least two reports to compare.");
       return;
     }
 
@@ -69,7 +69,7 @@ const Equipe = ({ user, toggleDarkMode, handleLogout }) => {
     );
 
     if (!allMatch) {
-      alert("Os usuários não avaliaram o mesmo framework. Comparação não é possível.");
+      alert("Users did not evaluate the same framework. Comparison is not possible.");
     } else {
       // Se todos os frameworks coincidirem, navegue para a página de comparação
       navigate("/comparacao", { state: { selectedReports } });
@@ -78,9 +78,10 @@ const Equipe = ({ user, toggleDarkMode, handleLogout }) => {
 
   return (
     <div className="equipe-container">
+      {/* Botão de Menu */}
       <Menu toggleDarkMode={toggleDarkMode} handleLogout={handleLogout} />
 
-      <h2>Equipe de {user?.companyName}</h2>
+      <h2>Team of {user?.companyName}</h2>
       {equipe.length > 0 ? (
         <>
           <ul className="equipe-list">
@@ -91,10 +92,10 @@ const Equipe = ({ user, toggleDarkMode, handleLogout }) => {
                 </span>
                 <div className="equipe-buttons">
                   <button className="btn-relatorio" onClick={() => handleViewReport(member.username)}>
-                    Ver Relatório
+                    View Report
                   </button>
                   <button className="btn-delete" onClick={() => handleDeleteReport(member.username)}>
-                    Apagar Relatório
+                    Delete Report
                   </button>
                   <label>
                     <input
@@ -102,18 +103,18 @@ const Equipe = ({ user, toggleDarkMode, handleLogout }) => {
                       onChange={() => handleSelectReport(member.username)}
                       checked={selectedReports.some((report) => report.username === member.username)}
                     />
-                    Selecionar para Comparar
+                    Select for Comparison
                   </label>
                 </div>
               </li>
             ))}
           </ul>
           <button className="btn-comparar" onClick={handleCompareReports}>
-            Comparar Relatórios Selecionados
+            Compare Selected Reports
           </button>
         </>
       ) : (
-        <p>Nenhum membro encontrado na equipe.</p>
+        <p>No team members found.</p>
       )}
     </div>
   );

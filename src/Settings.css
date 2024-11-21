@@ -1,0 +1,13 @@
+.settings-item {
+    margin-bottom: 15px;
+  }
+  
+  .settings label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .settings input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  

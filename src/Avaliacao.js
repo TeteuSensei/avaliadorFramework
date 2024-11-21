@@ -5,42 +5,163 @@ const Avaliacao = ({ user }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Estado para armazenar a lista de frameworks a serem avaliados
+  // State to store the list of frameworks to be evaluated
   const { frameworks } = location.state || { frameworks: [] };
 
-  // Inicializa o estado dos frameworks fora de qualquer condicional
+  // Initialize the state of frameworks outside any conditional
   const [frameworksData, setFrameworks] = useState(
     frameworks.map((framework) => ({
       frameworkName: framework,
       criteria: [
         {
           id: 1,
-          title: 'Custo',
-          weight: 'Prioridade Média', // Peso padrão do critério
+          title: 'Cost',
+          weight: 'Medium Priority',
           subcriteria: [
-            { title: 'Implementação', score: '', weight: 'Prioridade Média' },
-            { title: 'Licença', score: '', weight: 'Prioridade Média' },
-            { title: 'Treinamento', score: '', weight: 'Prioridade Média' },
-            { title: 'Manutenção', score: '', weight: 'Prioridade Média' },
-            { title: 'Consultoria', score: '', weight: 'Prioridade Média' },
+            { title: 'Implementation', score: '', weight: 'Medium Priority' },
+            { title: 'License', score: '', weight: 'Medium Priority' },
+            { title: 'Training', score: '', weight: 'Medium Priority' },
+            { title: 'Maintenance', score: '', weight: 'Medium Priority' },
+            { title: 'Consulting', score: '', weight: 'Medium Priority' },
           ],
         },
         {
           id: 2,
-          title: 'Segurança da Informação',
-          weight: 'Prioridade Média', // Peso padrão do critério
+          title: 'Information Security',
+          weight: 'Medium Priority',
           subcriteria: [
-            { title: 'Proteção de Dados', score: '', weight: 'Prioridade Média' },
-            { title: 'Detecção de Intrusões', score: '', weight: 'Prioridade Média' },
-            { title: 'Resposta a Incidentes', score: '', weight: 'Prioridade Média' },
-            { title: 'Recuperação', score: '', weight: 'Prioridade Média' },
+            { title: 'Data Protection', score: '', weight: 'Medium Priority' },
+            { title: 'Intrusion Detection', score: '', weight: 'Medium Priority' },
+            { title: 'Incident Response', score: '', weight: 'Medium Priority' },
+            { title: 'Recovery', score: '', weight: 'Medium Priority' },
+            { title: 'Prevention', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 3,
+          title: 'Efficiency',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Resource Optimization', score: '', weight: 'Medium Priority' },
+            { title: 'Response Time', score: '', weight: 'Medium Priority' },
+            { title: 'Automation', score: '', weight: 'Medium Priority' },
+            { title: 'Scalability', score: '', weight: 'Medium Priority' },
+            { title: 'Integration', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 4,
+          title: 'Performance',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Effectiveness of Security Measures', score: '', weight: 'Medium Priority' },
+            { title: 'Threat Detection Rate', score: '', weight: 'Medium Priority' },
+            { title: 'Risk Mitigation', score: '', weight: 'Medium Priority' },
+            { title: 'Impact on Operation', score: '', weight: 'Medium Priority' },
+            { title: 'Recovery Time', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 5,
+          title: 'Complexity',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Ease of Implementation', score: '', weight: 'Medium Priority' },
+            { title: 'Learning Curve', score: '', weight: 'Medium Priority' },
+            { title: 'Technical Requirements', score: '', weight: 'Medium Priority' },
+            { title: 'Compatibility with Existing Systems', score: '', weight: 'Medium Priority' },
+            { title: 'Maintenance Complexity', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 6,
+          title: 'Flexibility/Adaptability',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Adaptation to Different Sectors', score: '', weight: 'Medium Priority' },
+            { title: 'Customization', score: '', weight: 'Medium Priority' },
+            { title: 'Scalability', score: '', weight: 'Medium Priority' },
+            { title: 'Integration with Other Tools', score: '', weight: 'Medium Priority' },
+            { title: 'Configuration Adjustments', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 7,
+          title: 'Compliance',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Regulation', score: '', weight: 'Medium Priority' },
+            { title: 'Internal Policies', score: '', weight: 'Medium Priority' },
+            { title: 'Audit', score: '', weight: 'Medium Priority' },
+            { title: 'Reports', score: '', weight: 'Medium Priority' },
+            { title: 'Certification', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 8,
+          title: 'Support and Documentation',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Documentation Quality', score: '', weight: 'Medium Priority' },
+            { title: 'Technical Support Availability', score: '', weight: 'Medium Priority' },
+            { title: 'User Community', score: '', weight: 'Medium Priority' },
+            { title: 'Learning Resources', score: '', weight: 'Medium Priority' },
+            { title: 'Documentation Updates', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 9,
+          title: 'Scalability',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Growth Capacity', score: '', weight: 'Medium Priority' },
+            { title: 'Large-Scale Performance', score: '', weight: 'Medium Priority' },
+            { title: 'Expansion Flexibility', score: '', weight: 'Medium Priority' },
+            { title: 'Growth Management', score: '', weight: 'Medium Priority' },
+            { title: 'Support for Multinationals', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 10,
+          title: 'Community and Adoption',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Popularity', score: '', weight: 'Medium Priority' },
+            { title: 'Community Feedback', score: '', weight: 'Medium Priority' },
+            { title: 'Real Usage Examples', score: '', weight: 'Medium Priority' },
+            { title: 'Collaborations and Partnerships', score: '', weight: 'Medium Priority' },
+            { title: 'Continuous Development', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 11,
+          title: 'Integration with Other Tools',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Compatibility', score: '', weight: 'Medium Priority' },
+            { title: 'APIs and Connectors', score: '', weight: 'Medium Priority' },
+            { title: 'Interoperability', score: '', weight: 'Medium Priority' },
+            { title: 'Ease of Integration', score: '', weight: 'Medium Priority' },
+            { title: 'Support for Open Standards', score: '', weight: 'Medium Priority' },
+          ],
+        },
+        {
+          id: 12,
+          title: 'Innovation and Update',
+          weight: 'Medium Priority',
+          subcriteria: [
+            { title: 'Update Frequency', score: '', weight: 'Medium Priority' },
+            { title: 'Incorporation of New Technologies', score: '', weight: 'Medium Priority' },
+            { title: 'Research and Development', score: '', weight: 'Medium Priority' },
+            { title: 'Market Feedback', score: '', weight: 'Medium Priority' },
+            { title: 'Continuous Improvements', score: '', weight: 'Medium Priority' },
           ],
         },
       ],
     }))
   );
 
-  // Função para atualizar a pontuação de cada subcritério
+  // Function to update the score of each subcriterion
   const handleScoreChange = (frameworkIndex, criteriaId, subIndex, score) => {
     setFrameworks((prevFrameworks) =>
       prevFrameworks.map((framework, idx) =>
@@ -63,7 +184,7 @@ const Avaliacao = ({ user }) => {
     );
   };
 
-  // Função para atualizar o peso de cada subcritério
+  // Function to update the weight of each subcriterion
   const handleWeightChange = (frameworkIndex, criteriaId, subIndex, weight) => {
     setFrameworks((prevFrameworks) =>
       prevFrameworks.map((framework, idx) =>
@@ -86,7 +207,7 @@ const Avaliacao = ({ user }) => {
     );
   };
 
-  // Função para atualizar o peso de cada critério
+  // Function to update the weight of each criterion
   const handleCriteriaWeightChange = (frameworkIndex, criteriaId, weight) => {
     setFrameworks((prevFrameworks) =>
       prevFrameworks.map((framework, idx) =>
@@ -102,17 +223,17 @@ const Avaliacao = ({ user }) => {
     );
   };
 
-  // Função para validar a avaliação antes de submeter
+  // Function to validate the evaluation before submitting
   const validateForm = () => {
     for (const framework of frameworksData) {
       for (const criteria of framework.criteria) {
         if (!criteria.weight) {
-          alert(`Por favor, selecione o peso para o critério: ${criteria.title}`);
+          alert(`Please select the weight for the criterion: ${criteria.title}`);
           return false;
         }
         for (const sub of criteria.subcriteria) {
           if (!sub.score || !sub.weight) {
-            alert(`Por favor, preencha todos os campos para ${framework.frameworkName}.`);
+            alert(`Please fill in all fields for ${framework.frameworkName}.`);
             return false;
           }
         }
@@ -121,7 +242,7 @@ const Avaliacao = ({ user }) => {
     return true;
   };
 
-  // Função para manipular a submissão do formulário de avaliação
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -130,53 +251,53 @@ const Avaliacao = ({ user }) => {
       storedAvaliacoes.push({ username: user.username, frameworks: frameworksData });
       localStorage.setItem('avaliacoes', JSON.stringify(storedAvaliacoes));
 
-      // Redireciona para a página de Relatório
+      // Redirect to the Report page
       navigate('/relatorio', { state: { frameworksData } });
     }
   };
 
-  // Verifica se a lista de frameworks está vazia após a inicialização do estado
+  // Check if the list of frameworks is empty after state initialization
   if (!frameworks.length) {
-    return <div>Nenhum framework foi selecionado para avaliação.</div>;
+    return <div>No frameworks selected for evaluation.</div>;
   }
 
   return (
     <div className="avaliacao-container">
-      <h2>Avaliação de Frameworks</h2>
+      <h2>Framework Evaluation</h2>
       <form onSubmit={handleSubmit}>
         {frameworksData.map((framework, frameworkIndex) => (
           <div key={frameworkIndex} className="framework-container">
-            <h3>Avaliação para {framework.frameworkName}</h3>
+            <h3>Evaluation for {framework.frameworkName}</h3>
 
             {framework.criteria.map((criteria) => (
               <div key={criteria.id} className="criteria-container">
                 <h4>{criteria.title}</h4>
                 <div className="criteria-weight">
                   <label>
-                    Peso do Critério:
+                    Criterion Weight:
                     <select
                       value={criteria.weight}
                       onChange={(e) =>
                         handleCriteriaWeightChange(frameworkIndex, criteria.id, e.target.value)
                       }
                     >
-                      <option value="">Selecione...</option>
-                      <option value="Baixa Prioridade">Baixa Prioridade</option>
-                      <option value="Prioridade Média">Prioridade Média</option>
-                      <option value="Alta Prioridade">Alta Prioridade</option>
+                      <option value="">Select...</option>
+                      <option value="Low Priority">Low Priority</option>
+                      <option value="Medium Priority">Medium Priority</option>
+                      <option value="High Priority">High Priority</option>
                     </select>
                   </label>
                 </div>
                 <table>
                   <thead>
                     <tr>
-                      <th>Subcritérios</th>
-                      <th>1 - Pouco Importante</th>
-                      <th>2 - Moderadamente Importante</th>
-                      <th>3 - Importante</th>
-                      <th>4 - Muito Importante</th>
-                      <th>5 - Extremamente Importante</th>
-                      <th>Peso do Subcritério</th>
+                      <th>Subcriteria</th>
+                      <th>1 - Not Important</th>
+                      <th>2 - Moderately Important</th>
+                      <th>3 - Important</th>
+                      <th>4 - Very Important</th>
+                      <th>5 - Extremely Important</th>
+                      <th>Subcriterion Weight</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -201,10 +322,10 @@ const Avaliacao = ({ user }) => {
                             value={sub.weight}
                             onChange={(e) => handleWeightChange(frameworkIndex, criteria.id, subIndex, e.target.value)}
                           >
-                            <option value="">Selecione...</option>
-                            <option value="Baixa Prioridade">Baixa Prioridade</option>
-                            <option value="Prioridade Média">Prioridade Média</option>
-                            <option value="Alta Prioridade">Alta Prioridade</option>
+                            <option value="">Select...</option>
+                            <option value="Low Priority">Low Priority</option>
+                            <option value="Medium Priority">Medium Priority</option>
+                            <option value="High Priority">High Priority</option>
                           </select>
                         </td>
                       </tr>
@@ -215,7 +336,7 @@ const Avaliacao = ({ user }) => {
             ))}
           </div>
         ))}
-        <button type="submit">Enviar Avaliações</button>
+        <button type="submit">Submit Evaluations</button>
       </form>
     </div>
   );

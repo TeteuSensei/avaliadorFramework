@@ -7,24 +7,27 @@ const SelecionarFrameworks = ({ setFrameworks }) => {
   const [frameworkNames, setFrameworkNames] = useState(['']);
   const navigate = useNavigate();
 
+  // Função para alterar o número de frameworks
   const handleNumFrameworksChange = (e) => {
     const num = parseInt(e.target.value, 10);
     setNumFrameworks(num);
     setFrameworkNames(Array(num).fill(''));
   };
 
+  // Função para alterar o nome de cada framework
   const handleFrameworkNameChange = (index, value) => {
     const updatedFrameworkNames = [...frameworkNames];
     updatedFrameworkNames[index] = value;
     setFrameworkNames(updatedFrameworkNames);
   };
 
+  // Função para lidar com o envio do formulário
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Verificar se todos os frameworks têm nomes preenchidos
     if (frameworkNames.some(name => name.trim() === '')) {
-      alert('Por favor, preencha todos os nomes de frameworks.');
+      alert('Please fill in all the framework names.');
       return;
     }
 
@@ -37,10 +40,10 @@ const SelecionarFrameworks = ({ setFrameworks }) => {
 
   return (
     <div className="selecionar-frameworks-container">
-      <h2>Quantos frameworks deseja avaliar?</h2>
+      <h2>How many frameworks would you like to evaluate?</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Número de frameworks:
+          Number of frameworks:
           <input
             type="number"
             value={numFrameworks}
@@ -50,17 +53,17 @@ const SelecionarFrameworks = ({ setFrameworks }) => {
         </label>
         {frameworkNames.map((name, index) => (
           <label key={index}>
-            Nome do Framework {index + 1}:
+            Framework Name {index + 1}:
             <input
               type="text"
               value={name}
               onChange={(e) => handleFrameworkNameChange(index, e.target.value)}
-              placeholder={`Nome do Framework ${index + 1}`}
+              placeholder={`Framework Name ${index + 1}`}
               required
             />
           </label>
         ))}
-        <button type="submit">Iniciar Avaliação</button>
+        <button type="submit">Start Evaluation</button>
       </form>
     </div>
   );

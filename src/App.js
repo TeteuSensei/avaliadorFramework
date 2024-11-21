@@ -10,11 +10,9 @@ import Equipe from './Equipe';
 import SelecionarFrameworks from './SelecionarFrameworks';
 import PerfilUsuario from './PerfilUsuario';
 import Explicacao from './Explicacao';
-import './App.css';
+import AdminPanel from './AdminPanel'; // Importando o painel administrativo
 
-// Imports para suporte a multi-idiomas
-import { useTranslation } from 'react-i18next';
-import i18n from './i18n'; // Arquivo de configuração do i18next
+import './App.css';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,12 +20,6 @@ const App = () => {
   const [showSignup, setShowSignup] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [frameworks, setFrameworks] = useState([]); // Frameworks selecionados
-  const { t, i18n } = useTranslation(); // Hook para usar a função de tradução
-
-  // Função para alternar idioma
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang); // Mudar o idioma
-  };
 
   // Função de signup
   const handleSignup = (newUser) => {
@@ -70,12 +62,6 @@ const App = () => {
   return (
     <Router>
       <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
-        {/* Menu de idiomas */}
-        <div className="language-switcher">
-          <button onClick={() => changeLanguage('pt')}>PT</button>
-          <button onClick={() => changeLanguage('en')}>EN</button>
-        </div>
-
         <Routes>
           {/* Rota inicial - verifica se o usuário está logado */}
           <Route
@@ -123,6 +109,11 @@ const App = () => {
 
           {/* Rota para explicação */}
           <Route path="/explicacao" element={<Explicacao toggleDarkMode={toggleDarkMode} handleLogout={handleLogout} />} />
+        
+          {/* Rota para o painel administrativo */}
+          <Route path="/admin" element={<AdminPanel />} /> 
+          
+                  
         </Routes>
       </div>
     </Router>
